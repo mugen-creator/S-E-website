@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="合同会社S&E代表社員 石原俊太朗からのメッセージ。変化を恐れず、挑戦を楽しむ。ビジネスの可能性を、共に拓きます。">
+  <meta name="keywords" content="代表挨拶,石原俊太朗,S&E,経営理念">
+  <meta name="author" content="合同会社S&E">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sande-llc.jp/message">
+
+  <!-- OGP -->
+  <meta property="og:title" content="代表挨拶 | 合同会社S&E">
+  <meta property="og:description" content="合同会社S&E代表社員 石原俊太朗からのメッセージ">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sande-llc.jp/message">
+  <meta property="og:image" content="https://sande-llc.jp/assets/images/ogp-image.png">
+  <meta property="og:site_name" content="合同会社S&E">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <title>代表挨拶 | 合同会社S&E</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/scroll-to-top.css">
+
+  <style>
+    /* Page-specific styles */
+    .page-hero {
+      padding: calc(var(--header-height) + var(--spacing-xl)) 0 var(--spacing-lg);
+      background: linear-gradient(135deg, var(--main-color) 0%, #34495E 100%);
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      color: #FFFFFF;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .message-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: var(--spacing-xxl) var(--container-padding);
+    }
+
+    .message-content-simple {
+      max-width: 900px;
+      margin: 0 auto;
+      background: linear-gradient(to bottom, #FFFFFF 0%, #F8F9FA 100%);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--sub-color);
+      position: relative;
+    }
+
+    .message-content-simple::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--accent-color) 0%, var(--main-color) 100%);
+      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    }
+
+    .message-quote {
+      font-size: 1.8rem;
+      font-weight: var(--font-weight-bold);
+      text-align: center;
+      color: var(--main-color);
+      margin-bottom: var(--spacing-xl);
+      padding: var(--spacing-lg) var(--spacing-xl);
+      position: relative;
+      background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
+      border-radius: var(--radius-md);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .message-quote::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-size: 5rem;
+      color: var(--accent-color);
+      opacity: 0.2;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .message-quote::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    }
+
+    .message-text {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--text-color);
+      margin-bottom: var(--spacing-md);
+      position: relative;
+      padding-left: var(--spacing-md);
+    }
+
+    .message-text p {
+      position: relative;
+      padding-left: var(--spacing-sm);
+    }
+
+    .message-text p::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 3px;
+      height: calc(100% - 1rem);
+      background: linear-gradient(to bottom, var(--accent-color) 0%, transparent 100%);
+      opacity: 0.2;
+    }
+
+    .message-signature {
+      text-align: right;
+      margin-top: var(--spacing-xl);
+      padding: var(--spacing-lg) var(--spacing-xl);
+      background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, rgba(44, 62, 80, 0.05) 100%);
+      border-radius: var(--radius-md);
+      position: relative;
+    }
+
+    .message-signature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100%;
+      background: linear-gradient(to left, rgba(231, 76, 60, 0.1), transparent);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .signature-company {
+      font-size: 1.2rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--main-color);
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .signature-name {
+      font-size: 1.05rem;
+      color: var(--text-color);
+      position: relative;
+    }
+
+    @media (max-width: 767px) {
+      .page-hero {
+        padding: calc(var(--header-height-mobile) + var(--spacing-lg)) 0 var(--spacing-md);
+      }
+
+      .message-quote {
+        font-size: 1.3rem;
+        padding: var(--spacing-md);
+      }
+
+      .message-quote::before {
+        font-size: 3rem;
+        top: -10px;
+        left: 10px;
+      }
+
+      .message-text {
+        font-size: 1rem;
+        padding-left: var(--spacing-sm);
+      }
+
+      .message-content-simple {
+        padding: var(--spacing-lg);
+      }
+
+      .message-signature {
+        padding: var(--spacing-md);
+      }
+
+      .signature-company {
+        font-size: 1.1rem;
+      }
+
+      .signature-name {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="S&E Logo" width="150" height="45">
+      </a>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">ホーム</a></li>
+          <li class="nav-item"><a href="message.html" class="nav-link active">代表挨拶</a></li>
+          <li class="nav-item"><a href="company.html" class="nav-link">会社概要</a></li>
+          <li class="nav-item"><a href="business.html" class="nav-link">事業内容</a></li>
+          <li class="nav-item"><a href="mission.html" class="nav-link">ミッション・ビジョン</a></li>
+          <li class="nav-item"><a href="contact.html" class="btn btn-primary header-cta">お問い合わせ</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">ホーム</a></li>
+      <li><a href="message.html" class="mobile-nav-link">代表挨拶</a></li>
+      <li><a href="company.html" class="mobile-nav-link">会社概要</a></li>
+      <li><a href="business.html" class="mobile-nav-link">事業内容</a></li>
+      <li><a href="mission.html" class="mobile-nav-link">ミッション・ビジョン</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>代表挨拶</h1>
+        <p>Message from CEO</p>
+      </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message-container">
+      <div class="message-content-simple fade-in">
+        <div class="message-quote">
+          「変化を恐れず、挑戦を楽しむ」
+        </div>
+
+          <div class="message-text">
+            <p>2025年10月、私たちは合同会社S&Eを設立いたしました。</p>
+
+            <p>現代のビジネス環境は、かつてないスピードで変化しています。<br>
+            テクノロジーの進化、消費者ニーズの多様化、グローバル化の加速——<br>
+            これらの波は、企業に新たな挑戦と機会をもたらしています。</p>
+
+            <p>S&Eは、そんな変化の時代に、企業の皆様と共に歩むパートナーでありたいと考えています。</p>
+
+            <p>私たちが提供するのは、単なるサービスではありません。<br>
+            営業代行、広告宣伝、経営コンサルティング、商品企画——<br>
+            それぞれの専門性を融合させた、総合的なビジネスソリューションです。</p>
+
+            <p>「S&E」という社名には、「Support & Empower」<br>
+            ——支援し、力を引き出す——という想いを込めました。</p>
+
+            <p>お客様のビジネスが持つ可能性を最大限に引き出し、<br>
+            持続的な成長を実現するために、私たちは全力でサポートいたします。</p>
+
+            <p>小さな組織だからこそできる、フットワークの軽さと柔軟性。<br>
+            そして、一つひとつのプロジェクトに真摯に向き合う姿勢。</p>
+
+            <p>これが、S&Eの強みです。</p>
+
+            <p>ビジネスの可能性を、共に拓きましょう。<br>
+            皆様とのご縁を、心よりお待ちしております。</p>
+          </div>
+
+          <div class="message-signature">
+            <p class="signature-company">合同会社S&E</p>
+            <p class="signature-name">代表社員　石原 俊太朗</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>合同会社S&E</h3>
+          <address>
+            〒114-0014<br>
+            東京都北区田端5丁目5番6号<br>
+            メゾン・ル・ヴェール206号
+          </address>
+          <div class="footer-contact-item">
+            <span>TEL:</span>
+            <a href="tel:080-4683-9753">080-4683-9753</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>Email:</span>
+            <a href="mailto:sande.llc.official@gmail.com">sande.llc.official@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>サイトマップ</h3>
+          <nav class="footer-links">
+            <a href="index.html" class="footer-link">ホーム</a>
+            <a href="message.html" class="footer-link">代表挨拶</a>
+            <a href="company.html" class="footer-link">会社概要</a>
+            <a href="business.html" class="footer-link">事業内容</a>
+            <a href="mission.html" class="footer-link">ミッション・ビジョン</a>
+            <a href="contact.html" class="footer-link">お問い合わせ</a>
+          </nav>
+        </div>
+
+        <div class="footer-section">
+          <h3>法的情報</h3>
+          <nav class="footer-links">
+            <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+            <a href="personal-info.html" class="footer-link">個人情報の取り扱い</a>
+            <a href="legal.html" class="footer-link">特定商取引法に基づく表記</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 S&E LLC. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy.html" class="footer-legal-link">Privacy</a>
+          <a href="legal.html" class="footer-legal-link">Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/navigation.js" defer></script>
+  <script src="js/scroll-animation.js" defer></script>
+  <script src="js/smooth-scroll.js" defer></script>
+  <script src="js/scroll-to-top.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

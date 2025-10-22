@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="合同会社S&Eのミッション・ビジョン・バリュー。企業の可能性を最大化し、持続的な成長を支援します。">
+  <meta name="keywords" content="ミッション,ビジョン,バリュー,企業理念,行動指針">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sande-llc.jp/mission">
+
+  <title>ミッション・ビジョン | 合同会社S&E</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/scroll-to-top.css">
+
+  <style>
+    .page-hero {
+      padding: calc(var(--header-height) + var(--spacing-xl)) 0 var(--spacing-lg);
+      background: linear-gradient(135deg, var(--main-color) 0%, #34495E 100%);
+      color: #FFFFFF;
+      text-align: center;
+    }
+    .page-hero h1 { color: #FFFFFF; margin-bottom: var(--spacing-sm); }
+
+    .mission-section {
+      padding: var(--spacing-xxl) 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .mission-section:nth-child(even) {
+      background: linear-gradient(135deg, #F8F9FA 0%, #ECF0F1 100%);
+    }
+
+    .mission-section:nth-child(odd) {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+    }
+
+    .mission-label {
+      font-size: 0.9rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--accent-color);
+      letter-spacing: 0.2em;
+      margin-bottom: var(--spacing-sm);
+      text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.05) 100%);
+      border-radius: 20px;
+    }
+
+    .mission-label::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 60%;
+      background: var(--accent-color);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .mission-heading {
+      font-size: 2.5rem;
+      color: var(--main-color);
+      margin-bottom: var(--spacing-lg);
+      font-weight: var(--font-weight-bold);
+      position: relative;
+      display: inline-block;
+    }
+
+    .mission-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+      border-radius: 2px;
+    }
+
+    .mission-text {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      line-height: 2;
+      color: var(--text-color);
+      background: #FFFFFF;
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(231, 76, 60, 0.1);
+      position: relative;
+    }
+
+    .mission-text::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--accent-color) 0%, var(--main-color) 100%);
+      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .value-card {
+      background: linear-gradient(to bottom, #FFFFFF 0%, #F8F9FA 100%);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: all var(--transition-normal);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--accent-color) 0%, var(--main-color) 100%);
+      opacity: 0;
+      transition: opacity var(--transition-normal);
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(231, 76, 60, 0.2);
+      border-color: rgba(231, 76, 60, 0.2);
+    }
+
+    .value-card:hover::before {
+      opacity: 1;
+    }
+
+    .value-number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-color) 0%, #C0392B 100%);
+      color: #FFFFFF;
+      font-size: 1.8rem;
+      font-weight: var(--font-weight-bold);
+      line-height: 60px;
+      margin-bottom: var(--spacing-md);
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+      position: relative;
+    }
+
+    .value-number::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-color) 0%, #E67E73 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity var(--transition-normal);
+    }
+
+    .value-card:hover .value-number::before {
+      opacity: 1;
+    }
+
+    .value-title {
+      font-size: 1.4rem;
+      color: var(--main-color);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-sm);
+      position: relative;
+      padding-bottom: var(--spacing-sm);
+    }
+
+    .value-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    }
+
+    .value-description {
+      font-size: 1rem;
+      line-height: var(--line-height-body);
+      color: var(--text-sub-color);
+      padding: 0 var(--spacing-sm);
+    }
+
+    @media (max-width: 767px) {
+      .mission-label {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+      }
+
+      .mission-heading {
+        font-size: 1.75rem;
+      }
+
+      .mission-heading::after {
+        width: 60px;
+      }
+
+      .mission-text {
+        font-size: 1rem;
+        padding: var(--spacing-md);
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-card {
+        padding: var(--spacing-md);
+      }
+
+      .value-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        line-height: 50px;
+      }
+
+      .value-title {
+        font-size: 1.2rem;
+      }
+
+      .value-description {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="S&E Logo" width="150" height="45">
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">ホーム</a></li>
+          <li class="nav-item"><a href="message.html" class="nav-link">代表挨拶</a></li>
+          <li class="nav-item"><a href="company.html" class="nav-link">会社概要</a></li>
+          <li class="nav-item"><a href="business.html" class="nav-link">事業内容</a></li>
+          <li class="nav-item"><a href="mission.html" class="nav-link active">ミッション・ビジョン</a></li>
+          <li class="nav-item"><a href="contact.html" class="btn btn-primary header-cta">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">ホーム</a></li>
+      <li><a href="message.html" class="mobile-nav-link">代表挨拶</a></li>
+      <li><a href="company.html" class="mobile-nav-link">会社概要</a></li>
+      <li><a href="business.html" class="mobile-nav-link">事業内容</a></li>
+      <li><a href="mission.html" class="mobile-nav-link">ミッション・ビジョン</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>ミッション・ビジョン</h1>
+        <p>Mission & Vision</p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="mission-section">
+      <div class="container fade-in">
+        <p class="mission-label">Mission</p>
+        <h2 class="mission-heading">ミッション</h2>
+        <div class="mission-text">
+          <p style="font-size: 1.5rem; font-weight: var(--font-weight-bold); color: var(--main-color); margin-bottom: var(--spacing-md);">
+            企業の可能性を最大化し、<br>持続的な成長を支援する
+          </p>
+          <p>
+            私たちS&Eは、企業が直面する様々な課題に対し、<br>
+            営業、マーケティング、経営戦略の各分野から<br>
+            総合的なソリューションを提供します。
+          </p>
+          <p>
+            お客様のビジネスに深く寄り添い、<br>
+            共に考え、共に行動することで、<br>
+            真の成長を実現します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="mission-section">
+      <div class="container fade-in">
+        <p class="mission-label">Vision</p>
+        <h2 class="mission-heading">ビジョン</h2>
+        <div class="mission-text">
+          <p style="font-size: 1.5rem; font-weight: var(--font-weight-bold); color: var(--main-color); margin-bottom: var(--spacing-md);">
+            変化を楽しみ、挑戦を続ける<br>ビジネスパートナーへ
+          </p>
+          <p>
+            2030年までに、<br>
+            100社以上の企業の成長を支援し、<br>
+            多様な業界でのネットワークを構築します。
+          </p>
+          <p>
+            柔軟性とスピード感を武器に、<br>
+            時代の変化に対応し続ける<br>
+            信頼されるパートナーであり続けます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="mission-section">
+      <div class="container fade-in">
+        <p class="mission-label">Values</p>
+        <h2 class="mission-heading">バリュー（行動指針）</h2>
+
+        <div class="values-grid">
+          <div class="value-card fade-in">
+            <div class="value-number">1</div>
+            <h3 class="value-title">顧客第一</h3>
+            <p class="value-description">
+              お客様の成功が、私たちの成功です。<br>
+              常にお客様の視点に立ち、最善の提案を行います。
+            </p>
+          </div>
+
+          <div class="value-card fade-in">
+            <div class="value-number">2</div>
+            <h3 class="value-title">誠実さ</h3>
+            <p class="value-description">
+              正直で透明性のあるコミュニケーションを大切にします。<br>
+              約束は必ず守り、信頼関係を築きます。
+            </p>
+          </div>
+
+          <div class="value-card fade-in">
+            <div class="value-number">3</div>
+            <h3 class="value-title">柔軟性</h3>
+            <p class="value-description">
+              固定観念にとらわれず、最適な方法を模索します。<br>
+              変化を恐れず、新しい挑戦を楽しみます。
+            </p>
+          </div>
+
+          <div class="value-card fade-in">
+            <div class="value-number">4</div>
+            <h3 class="value-title">専門性</h3>
+            <p class="value-description">
+              各分野のプロフェッショナルとして、<br>
+              常に学び続け、知識とスキルを磨きます。
+            </p>
+          </div>
+
+          <div class="value-card fade-in">
+            <div class="value-number">5</div>
+            <h3 class="value-title">スピード</h3>
+            <p class="value-description">
+              迅速な意思決定と行動で、<br>
+              お客様のビジネスチャンスを逃しません。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: linear-gradient(135deg, var(--main-color) 0%, #34495E 100%); color: #FFFFFF; padding: var(--spacing-xxl) 0; text-align: center;">
+      <div class="container">
+        <h2 style="color: #FFFFFF; font-size: 2rem; margin-bottom: var(--spacing-md);">
+          ビジネスの可能性を、共に拓きましょう
+        </h2>
+        <p style="font-size: 1.1rem; margin-bottom: var(--spacing-lg); opacity: 0.9;">
+          S&Eは、お客様と共に成長し続けるパートナーです。
+        </p>
+        <a href="contact.html" class="btn btn-primary btn-large">お問い合わせ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>合同会社S&E</h3>
+          <address>
+            〒114-0014<br>
+            東京都北区田端5丁目5番6号<br>
+            メゾン・ル・ヴェール206号
+          </address>
+          <div class="footer-contact-item">
+            <span>TEL:</span>
+            <a href="tel:080-4683-9753">080-4683-9753</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>Email:</span>
+            <a href="mailto:sande.llc.official@gmail.com">sande.llc.official@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>サイトマップ</h3>
+          <nav class="footer-links">
+            <a href="index.html" class="footer-link">ホーム</a>
+            <a href="message.html" class="footer-link">代表挨拶</a>
+            <a href="company.html" class="footer-link">会社概要</a>
+            <a href="business.html" class="footer-link">事業内容</a>
+            <a href="mission.html" class="footer-link">ミッション・ビジョン</a>
+            <a href="contact.html" class="footer-link">お問い合わせ</a>
+          </nav>
+        </div>
+        <div class="footer-section">
+          <h3>法的情報</h3>
+          <nav class="footer-links">
+            <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+            <a href="personal-info.html" class="footer-link">個人情報の取り扱い</a>
+            <a href="legal.html" class="footer-link">特定商取引法に基づく表記</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 S&E LLC. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy.html" class="footer-legal-link">Privacy</a>
+          <a href="legal.html" class="footer-legal-link">Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navigation.js" defer></script>
+  <script src="js/scroll-animation.js" defer></script>
+  <script src="js/smooth-scroll.js" defer></script>
+  <script src="js/scroll-to-top.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

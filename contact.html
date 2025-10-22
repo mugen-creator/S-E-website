@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="合同会社S&Eへのお問い合わせフォーム。営業代行、広告代理、経営コンサルティングに関するご相談をお気軽にお寄せください。">
+  <meta name="keywords" content="お問い合わせ,コンタクト,相談,営業代行,広告代理,経営コンサルティング">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sande-llc.jp/contact">
+
+  <title>お問い合わせ | 合同会社S&E</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/scroll-to-top.css">
+
+  <style>
+    .page-hero {
+      padding: calc(var(--header-height) + var(--spacing-xl)) 0 var(--spacing-lg);
+      background: linear-gradient(135deg, var(--main-color) 0%, #34495E 100%);
+      color: #FFFFFF;
+      text-align: center;
+    }
+    .page-hero h1 { color: #FFFFFF; margin-bottom: var(--spacing-sm); }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--spacing-xxl) var(--container-padding);
+    }
+
+    .contact-intro {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .contact-intro p {
+      font-size: 1.1rem;
+      color: var(--text-sub-color);
+      line-height: var(--line-height-body);
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: var(--font-weight-medium);
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .required {
+      color: var(--accent-color);
+      margin-left: 0.25rem;
+    }
+
+    .optional {
+      color: var(--text-sub-color);
+      font-size: 0.9rem;
+      margin-left: 0.25rem;
+    }
+
+    input.error,
+    textarea.error,
+    select.error {
+      border-color: var(--accent-color);
+    }
+
+    .error-message {
+      display: none;
+      color: var(--accent-color);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
+    .form-group.checkbox {
+      display: flex;
+      align-items: start;
+      gap: 0.5rem;
+    }
+
+    .form-group.checkbox input[type="checkbox"] {
+      width: auto;
+      margin-top: 0.25rem;
+    }
+
+    .form-group.checkbox label {
+      margin-bottom: 0;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1.2rem;
+      font-size: 1.1rem;
+      font-weight: var(--font-weight-bold);
+      background-color: var(--accent-color);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      margin-top: var(--spacing-md);
+    }
+
+    .submit-btn:hover {
+      background-color: #C0392B;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .success-message {
+      display: none;
+      background-color: #D4EDDA;
+      border: 1px solid #C3E6CB;
+      color: #155724;
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-md);
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .success-message h3 {
+      color: #155724;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .contact-info-section {
+      background-color: var(--bg-light);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+      margin-top: var(--spacing-xl);
+    }
+
+    .contact-info-section h3 {
+      color: var(--main-color);
+      margin-bottom: var(--spacing-md);
+      font-size: 1.3rem;
+    }
+
+    .contact-method {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .contact-method:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-method-title {
+      font-weight: var(--font-weight-bold);
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-method-value {
+      font-size: 1.2rem;
+      color: var(--accent-color);
+      font-weight: var(--font-weight-medium);
+    }
+
+    .contact-method-value a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .contact-method-value a:hover {
+      color: var(--main-color);
+    }
+
+    .business-hours {
+      font-size: 0.9rem;
+      color: var(--text-sub-color);
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="S&E Logo" width="150" height="45">
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">ホーム</a></li>
+          <li class="nav-item"><a href="message.html" class="nav-link">代表挨拶</a></li>
+          <li class="nav-item"><a href="company.html" class="nav-link">会社概要</a></li>
+          <li class="nav-item"><a href="business.html" class="nav-link">事業内容</a></li>
+          <li class="nav-item"><a href="mission.html" class="nav-link">ミッション・ビジョン</a></li>
+          <li class="nav-item"><a href="contact.html" class="btn btn-primary header-cta">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">ホーム</a></li>
+      <li><a href="message.html" class="mobile-nav-link">代表挨拶</a></li>
+      <li><a href="company.html" class="mobile-nav-link">会社概要</a></li>
+      <li><a href="business.html" class="mobile-nav-link">事業内容</a></li>
+      <li><a href="mission.html" class="mobile-nav-link">ミッション・ビジョン</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>お問い合わせ</h1>
+        <p>Contact Us</p>
+      </div>
+    </section>
+
+    <section class="contact-container">
+      <div class="contact-intro">
+        <p>
+          ビジネスに関するご相談、サービスのお問い合わせなど<br>
+          お気軽にご連絡ください。<br>
+          担当者より2営業日以内にご返信いたします。
+        </p>
+      </div>
+
+      <!-- Success Message -->
+      <div class="success-message" id="successMessage">
+        <h3>送信完了</h3>
+        <p>
+          お問い合わせありがとうございます。<br>
+          内容を確認の上、担当者より2営業日以内にご連絡いたします。
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contactForm" class="fade-in">
+        <div class="form-group">
+          <label for="company">会社名・団体名 <span class="required">必須</span></label>
+          <input type="text" id="company" name="company" required>
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="name">お名前 <span class="required">必須</span></label>
+          <input type="text" id="name" name="name" required>
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">メールアドレス <span class="required">必須</span></label>
+          <input type="email" id="email" name="email" required>
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">電話番号 <span class="optional">任意</span></label>
+          <input type="tel" id="phone" name="phone">
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">お問い合わせ種別 <span class="required">必須</span></label>
+          <select id="subject" name="subject" required>
+            <option value="">選択してください</option>
+            <option value="sales">営業代行について</option>
+            <option value="advertising">広告代理業について</option>
+            <option value="consulting">経営コンサルティングについて</option>
+            <option value="product">商品企画・販売について</option>
+            <option value="antique">古物営業について</option>
+            <option value="other">その他</option>
+          </select>
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+          <textarea id="message" name="message" rows="8" required></textarea>
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group checkbox">
+          <input type="checkbox" id="privacy" name="privacy" required>
+          <label for="privacy">
+            <a href="privacy.html" target="_blank" style="color: var(--accent-color); text-decoration: underline;">プライバシーポリシー</a>に同意する
+          </label>
+          <span class="error-message"></span>
+        </div>
+
+        <button type="submit" class="submit-btn">送信する</button>
+      </form>
+
+      <!-- Contact Info -->
+      <div class="contact-info-section fade-in">
+        <div class="contact-method">
+          <h3 class="contact-method-title">お電話でのお問い合わせ</h3>
+          <p class="contact-method-value"><a href="tel:080-4683-9753">080-4683-9753</a></p>
+          <p class="business-hours">受付時間: 平日 9:00〜18:00</p>
+        </div>
+
+        <div class="contact-method">
+          <h3 class="contact-method-title">メールでのお問い合わせ</h3>
+          <p class="contact-method-value"><a href="mailto:sande.llc.official@gmail.com">sande.llc.official@gmail.com</a></p>
+          <p class="business-hours">24時間受付</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>合同会社S&E</h3>
+          <address>
+            〒114-0014<br>
+            東京都北区田端5丁目5番6号<br>
+            メゾン・ル・ヴェール206号
+          </address>
+          <div class="footer-contact-item">
+            <span>TEL:</span>
+            <a href="tel:080-4683-9753">080-4683-9753</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>Email:</span>
+            <a href="mailto:sande.llc.official@gmail.com">sande.llc.official@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>サイトマップ</h3>
+          <nav class="footer-links">
+            <a href="index.html" class="footer-link">ホーム</a>
+            <a href="message.html" class="footer-link">代表挨拶</a>
+            <a href="company.html" class="footer-link">会社概要</a>
+            <a href="business.html" class="footer-link">事業内容</a>
+            <a href="mission.html" class="footer-link">ミッション・ビジョン</a>
+            <a href="contact.html" class="footer-link">お問い合わせ</a>
+          </nav>
+        </div>
+        <div class="footer-section">
+          <h3>法的情報</h3>
+          <nav class="footer-links">
+            <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+            <a href="personal-info.html" class="footer-link">個人情報の取り扱い</a>
+            <a href="legal.html" class="footer-link">特定商取引法に基づく表記</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 S&E LLC. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy.html" class="footer-legal-link">Privacy</a>
+          <a href="legal.html" class="footer-legal-link">Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navigation.js" defer></script>
+  <script src="js/scroll-animation.js" defer></script>
+  <script src="js/smooth-scroll.js" defer></script>
+  <script src="js/form-validation.js" defer></script>
+  <script src="js/scroll-to-top.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

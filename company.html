@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="合同会社S&Eの会社概要。設立2025年10月、東京都北区に拠点を置く、営業代行業、広告代理業、経営コンサルティングを提供する企業です。">
+  <meta name="keywords" content="会社概要,S&E,東京都北区,営業代行,広告代理,経営コンサルティング">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sande-llc.jp/company">
+
+  <title>会社概要 | 合同会社S&E</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/scroll-to-top.css">
+
+  <style>
+    .page-hero {
+      padding: calc(var(--header-height) + var(--spacing-xl)) 0 var(--spacing-lg);
+      background: linear-gradient(135deg, var(--main-color) 0%, #34495E 100%);
+      color: #FFFFFF;
+      text-align: center;
+    }
+    .page-hero h1 { color: #FFFFFF; margin-bottom: var(--spacing-sm); }
+    .company-table-wrapper {
+      background: linear-gradient(to bottom, #FFFFFF 0%, #F8F9FA 100%);
+      padding: var(--spacing-xl);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--sub-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .company-table-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--accent-color) 0%, var(--main-color) 100%);
+    }
+
+    .company-table {
+      width: 100%;
+      border: none;
+      margin: 0;
+    }
+    .company-table tr {
+      border-bottom: 1px solid var(--sub-color);
+      transition: background-color var(--transition-fast);
+    }
+    .company-table tr:hover {
+      background-color: rgba(231, 76, 60, 0.02);
+    }
+    .company-table tr:last-child {
+      border-bottom: none;
+    }
+    .company-table th,
+    .company-table td {
+      padding: var(--spacing-md);
+      text-align: left;
+      vertical-align: top;
+    }
+    .company-table th {
+      width: 200px;
+      font-weight: var(--font-weight-bold);
+      color: var(--main-color);
+      background: linear-gradient(135deg, #F8F9FA 0%, #ECF0F1 100%);
+      position: relative;
+    }
+    .company-table th::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 60%;
+      background: linear-gradient(to bottom, transparent, var(--accent-color), transparent);
+      opacity: 0.3;
+    }
+    .company-table td {
+      color: var(--text-color);
+      line-height: var(--line-height-body);
+    }
+    .company-table ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .company-table li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .company-table li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    .access-map {
+      background: linear-gradient(135deg, #F8F9FA 0%, #ECF0F1 100%);
+      padding: var(--spacing-xxl) 0;
+      position: relative;
+    }
+    .access-map::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, var(--accent-color), var(--main-color));
+    }
+    .map-container {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: var(--spacing-lg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border: 3px solid #FFFFFF;
+      position: relative;
+    }
+    .map-container::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(135deg, var(--accent-color), var(--main-color));
+      border-radius: var(--radius-lg);
+      z-index: -1;
+    }
+    .map-container iframe {
+      display: block;
+    }
+    .access-info {
+      text-align: center;
+      color: var(--text-color);
+      line-height: 2;
+      font-size: 1.05rem;
+      background: #FFFFFF;
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .access-info::before {
+      content: '📍';
+      display: block;
+      font-size: 2rem;
+      margin-bottom: var(--spacing-sm);
+    }
+    .access-info strong {
+      color: var(--main-color);
+      font-size: 1.15rem;
+      display: block;
+      margin-bottom: var(--spacing-sm);
+    }
+    @media (max-width: 767px) {
+      .company-table-wrapper {
+        padding: var(--spacing-lg);
+      }
+      .company-table th,
+      .company-table td {
+        display: block;
+        width: 100%;
+      }
+      .company-table th {
+        padding-bottom: 0.5rem;
+      }
+      .company-table th::after {
+        display: none;
+      }
+      .company-table td {
+        padding-top: 0.5rem;
+      }
+      .map-container iframe {
+        height: 300px;
+      }
+      .access-info {
+        font-size: 0.95rem;
+        padding: var(--spacing-md);
+      }
+      .access-info::before {
+        font-size: 1.5rem;
+      }
+      .access-info strong {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.svg" alt="S&E Logo" width="150" height="45">
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">ホーム</a></li>
+          <li class="nav-item"><a href="message.html" class="nav-link">代表挨拶</a></li>
+          <li class="nav-item"><a href="company.html" class="nav-link active">会社概要</a></li>
+          <li class="nav-item"><a href="business.html" class="nav-link">事業内容</a></li>
+          <li class="nav-item"><a href="mission.html" class="nav-link">ミッション・ビジョン</a></li>
+          <li class="nav-item"><a href="contact.html" class="btn btn-primary header-cta">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">ホーム</a></li>
+      <li><a href="message.html" class="mobile-nav-link">代表挨拶</a></li>
+      <li><a href="company.html" class="mobile-nav-link">会社概要</a></li>
+      <li><a href="business.html" class="mobile-nav-link">事業内容</a></li>
+      <li><a href="mission.html" class="mobile-nav-link">ミッション・ビジョン</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>会社概要</h1>
+        <p>Company Profile</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container" style="padding: var(--spacing-xxl) var(--container-padding);">
+        <div class="company-table-wrapper">
+          <table class="company-table">
+          <tr>
+            <th>会社名</th>
+            <td>合同会社S&E</td>
+          </tr>
+          <tr>
+            <th>法人番号</th>
+            <td>9011503006730</td>
+          </tr>
+          <tr>
+            <th>資本金</th>
+            <td>1,000,000円</td>
+          </tr>
+          <tr>
+            <th>代表者</th>
+            <td>代表社員 石原俊太朗</td>
+          </tr>
+          <tr>
+            <th>本店所在地</th>
+            <td>
+              〒114-0014<br>
+              東京都北区田端5丁目5番6号<br>
+              メゾン・ル・ヴェール206号
+            </td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td>080-4683-9753</td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td>sande.llc.official@gmail.com</td>
+          </tr>
+          <tr>
+            <th>事業内容</th>
+            <td>
+              <ul>
+                <li>営業代行業</li>
+                <li>広告代理業及び各種の宣伝に関する業務</li>
+                <li>古物営業法に基づく古物営業</li>
+                <li>商品の企画、製造及び販売並びに輸出入</li>
+                <li>経営コンサルティング業務</li>
+                <li>企業の営業に関するコンサルティング業務</li>
+                <li>資産の管理、運用及びそれらに関するコンサルティング業務</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="access-map">
+      <div class="container">
+        <h2 class="section-title">アクセス</h2>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.962822826936!2d139.76211007636892!3d35.73806217257537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188df21abc22e5%3A0x41c52d83c5c4e8b9!2z44CSOTExNC0wMDE0IOadseS6rOmDveWMl-WMuueUsOerr--8leS4geebrzviiJLvvJblj7cgTWFpc29uIGxlIFZlcnQ!5e0!3m2!1sja!2sjp!4v1704444444444!5m2!1sja!2sjp"
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <p class="access-info">
+          <strong>〒114-0014 東京都北区田端5丁目5番6号 メゾン・ル・ヴェール206号</strong><br><br>
+          JR山手線・京浜東北線「田端駅」北口より徒歩7分<br>
+          東京メトロ千代田線「西日暮里駅」より徒歩12分
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>合同会社S&E</h3>
+          <address>
+            〒114-0014<br>
+            東京都北区田端5丁目5番6号<br>
+            メゾン・ル・ヴェール206号
+          </address>
+          <div class="footer-contact-item">
+            <span>TEL:</span>
+            <a href="tel:080-4683-9753">080-4683-9753</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>Email:</span>
+            <a href="mailto:sande.llc.official@gmail.com">sande.llc.official@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>サイトマップ</h3>
+          <nav class="footer-links">
+            <a href="index.html" class="footer-link">ホーム</a>
+            <a href="message.html" class="footer-link">代表挨拶</a>
+            <a href="company.html" class="footer-link">会社概要</a>
+            <a href="business.html" class="footer-link">事業内容</a>
+            <a href="mission.html" class="footer-link">ミッション・ビジョン</a>
+            <a href="contact.html" class="footer-link">お問い合わせ</a>
+          </nav>
+        </div>
+        <div class="footer-section">
+          <h3>法的情報</h3>
+          <nav class="footer-links">
+            <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+            <a href="personal-info.html" class="footer-link">個人情報の取り扱い</a>
+            <a href="legal.html" class="footer-link">特定商取引法に基づく表記</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 S&E LLC. All Rights Reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy.html" class="footer-legal-link">Privacy</a>
+          <a href="legal.html" class="footer-legal-link">Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navigation.js" defer></script>
+  <script src="js/scroll-animation.js" defer></script>
+  <script src="js/smooth-scroll.js" defer></script>
+  <script src="js/scroll-to-top.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
