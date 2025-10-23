@@ -1,4 +1,4 @@
-// Three.js Background Effect for Hero Section
+// Three.js Ocean Background Effect for Hero Section
 (function() {
   'use strict';
 
@@ -28,9 +28,9 @@
   // Camera position
   camera.position.z = 50;
 
-  // Particles
+  // Ocean Particles (representing water droplets/bubbles)
   const particlesGeometry = new THREE.BufferGeometry();
-  const particlesCount = 1000;
+  const particlesCount = 800;
   const posArray = new Float32Array(particlesCount * 3);
 
   for (let i = 0; i < particlesCount * 3; i++) {
@@ -39,7 +39,7 @@
 
   particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
-  // Create circular texture
+  // Create circular texture for bubbles
   const canvas = document.createElement('canvas');
   canvas.width = 64;
   canvas.height = 64;
@@ -48,11 +48,11 @@
   // Clear canvas (transparent background)
   ctx.clearRect(0, 0, 64, 64);
 
-  // Draw circle with gradient
+  // Draw circle with gradient (bubble effect)
   const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-  gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-  gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.8)');
-  gradient.addColorStop(0.4, 'rgba(255, 255, 255, 0.4)');
+  gradient.addColorStop(0, 'rgba(109, 180, 200, 1)');
+  gradient.addColorStop(0.3, 'rgba(139, 201, 217, 0.8)');
+  gradient.addColorStop(0.7, 'rgba(232, 244, 248, 0.4)');
   gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
 
   ctx.fillStyle = gradient;
@@ -62,20 +62,20 @@
 
   const texture = new THREE.CanvasTexture(canvas);
 
-  // Create size attribute for varying star sizes
+  // Create size attribute for varying bubble sizes
   const sizes = new Float32Array(particlesCount);
   for (let i = 0; i < particlesCount; i++) {
-    sizes[i] = Math.random() * 2 + 0.5;
+    sizes[i] = Math.random() * 3 + 0.5;
   }
   particlesGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-  // Material with circular texture
+  // Material with circular texture (ocean colors)
   const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.3,
-    color: 0xFFFFFF,
+    size: 0.4,
+    color: 0x6DB4C8, // Ocean blue color matching logo
     transparent: true,
-    opacity: 0.9,
-    blending: THREE.AdditiveBlending,
+    opacity: 0.6,
+    blending: THREE.NormalBlending,
     map: texture,
     sizeAttenuation: true
   });
@@ -84,88 +84,72 @@
   const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
   scene.add(particlesMesh);
 
-  // Shooting Stars
-  const shootingStars = [];
-  const maxShootingStars = 3;
+  // Floating Bubbles
+  const floatingBubbles = [];
+  const maxBubbles = 5;
 
-  class ShootingStar {
+  class FloatingBubble {
     constructor() {
       this.reset();
     }
 
     reset() {
-      // Random starting position
+      // Random starting position (from bottom)
       this.position = new THREE.Vector3(
-        (Math.random() - 0.5) * 100,
-        Math.random() * 50 + 20,
+        (Math.random() - 0.5) * 80,
+        -50 - Math.random() * 20,
         (Math.random() - 0.5) * 50
       );
 
-      // Direction and speed
+      // Upward velocity with slight horizontal drift
       this.velocity = new THREE.Vector3(
-        Math.random() * 2 + 1,
-        -(Math.random() * 1.5 + 1),
-        Math.random() * 0.5 - 0.25
+        (Math.random() - 0.5) * 0.3,
+        Math.random() * 0.5 + 0.3,
+        (Math.random() - 0.5) * 0.2
       );
 
       this.life = 1.0;
-      this.decay = 0.01 + Math.random() * 0.01;
+      this.decay = 0.005 + Math.random() * 0.005;
+      this.size = Math.random() * 2 + 1;
 
-      // Create trail
-      const trailGeometry = new THREE.BufferGeometry();
-      const trailPositions = new Float32Array(30); // 10 points for trail
-      trailGeometry.setAttribute('position', new THREE.BufferAttribute(trailPositions, 3));
-
-      const trailMaterial = new THREE.LineBasicMaterial({
-        color: 0xFFFFFF,
+      // Create bubble geometry
+      const bubbleGeometry = new THREE.SphereGeometry(this.size, 16, 16);
+      const bubbleMaterial = new THREE.MeshBasicMaterial({
+        color: 0x8BC9D9,
         transparent: true,
-        opacity: 0.8,
-        blending: THREE.AdditiveBlending
+        opacity: 0.4,
+        blending: THREE.NormalBlending
       });
 
-      this.trail = new THREE.Line(trailGeometry, trailMaterial);
-      scene.add(this.trail);
-
-      this.trailPoints = [];
-      for (let i = 0; i < 10; i++) {
-        this.trailPoints.push(this.position.clone());
-      }
+      this.bubble = new THREE.Mesh(bubbleGeometry, bubbleMaterial);
+      this.bubble.position.copy(this.position);
+      scene.add(this.bubble);
     }
 
     update() {
+      // Add wave-like horizontal motion
+      this.velocity.x = Math.sin(this.position.y * 0.1) * 0.1;
+
       this.position.add(this.velocity);
+      this.bubble.position.copy(this.position);
       this.life -= this.decay;
 
-      // Update trail
-      this.trailPoints.unshift(this.position.clone());
-      if (this.trailPoints.length > 10) {
-        this.trailPoints.pop();
-      }
-
-      const positions = this.trail.geometry.attributes.position.array;
-      for (let i = 0; i < this.trailPoints.length; i++) {
-        positions[i * 3] = this.trailPoints[i].x;
-        positions[i * 3 + 1] = this.trailPoints[i].y;
-        positions[i * 3 + 2] = this.trailPoints[i].z;
-      }
-      this.trail.geometry.attributes.position.needsUpdate = true;
-
       // Fade out
-      this.trail.material.opacity = this.life * 0.8;
+      this.bubble.material.opacity = this.life * 0.4;
 
-      // Reset if dead
-      if (this.life <= 0) {
-        scene.remove(this.trail);
-        this.trail.geometry.dispose();
-        this.trail.material.dispose();
+      // Reset if dead or too high
+      if (this.life <= 0 || this.position.y > 50) {
+        scene.remove(this.bubble);
+        this.bubble.geometry.dispose();
+        this.bubble.material.dispose();
         this.reset();
       }
     }
   }
 
-  // Create shooting stars
-  for (let i = 0; i < maxShootingStars; i++) {
-    shootingStars.push(new ShootingStar());
+  // Create floating bubbles
+  for (let i = 0; i < maxBubbles; i++) {
+    floatingBubbles.push(new FloatingBubble());
   }
 
   // Mouse interaction
@@ -188,16 +172,16 @@
     animationId = requestAnimationFrame(animate);
     time += 0.005;
 
-    // Subtle camera movement for parallax effect
-    camera.position.x = Math.sin(time * 0.1) * 2;
-    camera.position.y = Math.cos(time * 0.15) * 1.5;
+    // Gentle camera movement for ocean wave effect
+    camera.position.x = Math.sin(time * 0.08) * 3;
+    camera.position.y = Math.cos(time * 0.12) * 2;
     camera.lookAt(0, 0, 0);
 
     // Mouse interaction - subtle camera tilt
-    camera.position.x += mouseX * 3;
-    camera.position.y += mouseY * 2;
+    camera.position.x += mouseX * 2;
+    camera.position.y += mouseY * 1.5;
 
-    // Add subtle floating motion to stars
+    // Add wave motion to particles
     const positions = particlesGeometry.attributes.position.array;
     const sizeAttr = particlesGeometry.attributes.size.array;
     for (let i = 0; i < particlesCount; i++) {
@@ -206,19 +190,19 @@
       const origY = originalPositions[i3 + 1];
       const origZ = originalPositions[i3 + 2];
 
-      // Gentle floating motion
-      positions[i3] = origX + Math.sin(time * 0.3 + i * 0.1) * 0.5;
-      positions[i3 + 1] = origY + Math.cos(time * 0.2 + i * 0.1) * 0.5;
-      positions[i3 + 2] = origZ + Math.sin(time * 0.25 + i * 0.15) * 0.8;
+      // Wave-like motion (horizontal and vertical)
+      positions[i3] = origX + Math.sin(time * 0.4 + origY * 0.05) * 2;
+      positions[i3 + 1] = origY + Math.cos(time * 0.3 + origX * 0.05) * 1.5;
+      positions[i3 + 2] = origZ + Math.sin(time * 0.35 + origX * 0.03) * 1;
 
-      // Twinkle effect
-      sizeAttr[i] = (Math.sin(time + i) * 0.4 + 1.0) * (Math.random() * 0.3 + 0.8);
+      // Gentle size pulsing (like breathing bubbles)
+      sizeAttr[i] = (Math.sin(time * 0.5 + i * 0.1) * 0.3 + 1.0) * (Math.random() * 0.2 + 0.9);
     }
     particlesGeometry.attributes.position.needsUpdate = true;
     particlesGeometry.attributes.size.needsUpdate = true;
 
-    // Update shooting stars
-    shootingStars.forEach(star => star.update());
+    // Update floating bubbles
+    floatingBubbles.forEach(bubble => bubble.update());
 
     renderer.render(scene, camera);
   }
@@ -241,11 +225,11 @@
     particlesMaterial.dispose();
     texture.dispose();
 
-    // Clean up shooting stars
-    shootingStars.forEach(star => {
-      scene.remove(star.trail);
-      star.trail.geometry.dispose();
-      star.trail.material.dispose();
+    // Clean up floating bubbles
+    floatingBubbles.forEach(bubble => {
+      scene.remove(bubble.bubble);
+      bubble.bubble.geometry.dispose();
+      bubble.bubble.material.dispose();
     });
 
     renderer.dispose();
