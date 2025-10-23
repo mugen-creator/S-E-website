@@ -224,45 +224,60 @@
     }
 
     @media (max-width: 767px) {
+      .page-hero {
+        padding: calc(var(--header-height-mobile) + var(--spacing-md)) 0 var(--spacing-sm);
+      }
+
+      .page-hero h1 {
+        font-size: 1.5rem;
+      }
+
       .mission-label {
-        font-size: 0.8rem;
-        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.875rem;
       }
 
       .mission-heading {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
       }
 
       .mission-heading::after {
-        width: 60px;
+        width: 50px;
       }
 
       .mission-text {
-        font-size: 1rem;
-        padding: var(--spacing-md);
+        font-size: 0.875rem;
+        line-height: 1.8;
+        padding: var(--spacing-sm);
+      }
+
+      .mission-text p {
+        font-size: 0.875rem;
       }
 
       .values-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
       }
 
       .value-card {
-        padding: var(--spacing-md);
+        padding: var(--spacing-sm);
       }
 
       .value-number {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-        line-height: 50px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+        line-height: 45px;
+        margin-bottom: var(--spacing-sm);
       }
 
       .value-title {
-        font-size: 1.2rem;
+        font-size: 1.125rem;
       }
 
       .value-description {
-        font-size: 0.95rem;
+        font-size: 0.875rem;
       }
     }
   </style>
