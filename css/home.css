@@ -222,7 +222,7 @@
   color: var(--text-color);
   line-height: var(--line-height-body);
   margin-bottom: var(--spacing-md);
-  text-align: left;
+  text-align: center;
 }
 
 /* CTA Section */
