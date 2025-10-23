@@ -8,6 +8,14 @@
     return;
   }
 
+  // URLパラメータをチェックして成功メッセージを表示
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    showSuccessMessage();
+    // URLから?success=trueを削除（履歴に残さない）
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
   // Validation functions
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -90,8 +98,6 @@
 
   // Form submission
   form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
     let isValid = true;
 
     // Validate all fields
@@ -102,6 +108,7 @@
     });
 
     if (!isValid) {
+      e.preventDefault();
       // Scroll to first error
       const firstError = form.querySelector('.error');
       if (firstError) {
@@ -110,8 +117,8 @@
       return;
     }
 
-    // Show success message (in production, send data to server)
-    showSuccessMessage();
+    // バリデーション成功時はNetlifyにフォームを送信
+    // Netlifyが自動的にサンクスページまたはリダイレクトを処理します
   });
 
   function showSuccessMessage() {
@@ -123,13 +130,6 @@
 
       // Scroll to success message
       successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-      // Reset form after 5 seconds
-      setTimeout(() => {
-        form.reset();
-        form.style.display = 'block';
-        successMessage.style.display = 'none';
-      }, 5000);
     }
   }
 })();

@@ -249,7 +249,12 @@
       </div>
 
       <!-- Contact Form -->
-      <form id="contactForm" class="fade-in">
+      <form id="contactForm" name="contact" method="POST" action="/contact.html?success=true" data-netlify="true" data-netlify-honeypot="bot-field" class="fade-in">
+        <!-- スパム対策用（非表示） -->
+        <p style="display: none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
         <div class="form-group">
           <label for="company">会社名・団体名 <span class="required">必須</span></label>
           <input type="text" id="company" name="company" required>
