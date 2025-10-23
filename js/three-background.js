@@ -1,4 +1,4 @@
-// Three.js Ocean Background Effect for Hero Section
+// Three.js Realistic Ocean Wave Background Effect for Hero Section
 (function() {
   'use strict';
 
@@ -19,137 +19,172 @@
   // Scene setup
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   heroBackground.appendChild(renderer.domElement);
 
-  // Camera position
-  camera.position.z = 50;
+  // Camera position - positioned to look at ocean from above
+  camera.position.set(0, 8, 15);
+  camera.lookAt(0, 0, 0);
 
-  // Ocean Particles (representing water droplets/bubbles)
-  const particlesGeometry = new THREE.BufferGeometry();
-  const particlesCount = 800;
-  const posArray = new Float32Array(particlesCount * 3);
+  // Create realistic ocean waves using PlaneGeometry
+  const waveGeometry = new THREE.PlaneGeometry(100, 100, 128, 128);
 
-  for (let i = 0; i < particlesCount * 3; i++) {
-    posArray[i] = (Math.random() - 0.5) * 100;
+  // Store original positions
+  const originalPositions = new Float32Array(waveGeometry.attributes.position.array.length);
+  for (let i = 0; i < originalPositions.length; i++) {
+    originalPositions[i] = waveGeometry.attributes.position.array[i];
   }
 
-  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-  // Create circular texture for bubbles
-  const canvas = document.createElement('canvas');
-  canvas.width = 64;
-  canvas.height = 64;
-  const ctx = canvas.getContext('2d');
-
-  // Clear canvas (transparent background)
-  ctx.clearRect(0, 0, 64, 64);
-
-  // Draw circle with gradient (bubble effect)
-  const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-  gradient.addColorStop(0, 'rgba(109, 180, 200, 1)');
-  gradient.addColorStop(0.3, 'rgba(139, 201, 217, 0.8)');
-  gradient.addColorStop(0.7, 'rgba(232, 244, 248, 0.4)');
-  gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-
-  ctx.fillStyle = gradient;
-  ctx.beginPath();
-  ctx.arc(32, 32, 32, 0, Math.PI * 2);
-  ctx.fill();
-
-  const texture = new THREE.CanvasTexture(canvas);
-
-  // Create size attribute for varying bubble sizes
-  const sizes = new Float32Array(particlesCount);
-  for (let i = 0; i < particlesCount; i++) {
-    sizes[i] = Math.random() * 3 + 0.5;
-  }
-  particlesGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-  // Material with circular texture (ocean colors)
-  const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.4,
-    color: 0x6DB4C8, // Ocean blue color matching logo
+  // Create ocean material with gradient
+  const oceanMaterial = new THREE.MeshPhongMaterial({
+    color: 0x2C5F7D,
     transparent: true,
-    opacity: 0.6,
-    blending: THREE.NormalBlending,
-    map: texture,
-    sizeAttenuation: true
+    opacity: 0.9,
+    shininess: 100,
+    flatShading: false,
+    side: THREE.DoubleSide
   });
 
-  // Mesh
-  const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-  scene.add(particlesMesh);
+  const ocean = new THREE.Mesh(waveGeometry, oceanMaterial);
+  ocean.rotation.x = -Math.PI / 2;
+  ocean.position.y = -3;
+  scene.add(ocean);
 
-  // Floating Bubbles
-  const floatingBubbles = [];
-  const maxBubbles = 5;
+  // Create second layer of waves (lighter color for depth)
+  const waveGeometry2 = new THREE.PlaneGeometry(100, 100, 64, 64);
+  const oceanMaterial2 = new THREE.MeshPhongMaterial({
+    color: 0x4A8FA5,
+    transparent: true,
+    opacity: 0.6,
+    shininess: 80,
+    flatShading: false,
+    side: THREE.DoubleSide
+  });
 
-  class FloatingBubble {
-    constructor() {
+  const ocean2 = new THREE.Mesh(waveGeometry2, oceanMaterial2);
+  ocean2.rotation.x = -Math.PI / 2;
+  ocean2.position.y = -2.5;
+  scene.add(ocean2);
+
+  // Add lighting for realistic effect
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  directionalLight.position.set(5, 10, 7.5);
+  scene.add(directionalLight);
+
+  // Add point light for shimmer effect
+  const pointLight = new THREE.PointLight(0x8BC9D9, 1, 50);
+  pointLight.position.set(0, 5, 0);
+  scene.add(pointLight);
+
+  // Create foam/shore particles (wave crest)
+  const foamParticlesGeometry = new THREE.BufferGeometry();
+  const foamParticlesCount = 500;
+  const foamPosArray = new Float32Array(foamParticlesCount * 3);
+
+  for (let i = 0; i < foamParticlesCount * 3; i += 3) {
+    foamPosArray[i] = (Math.random() - 0.5) * 80;     // x
+    foamPosArray[i + 1] = Math.random() * 2 - 1;       // y
+    foamPosArray[i + 2] = (Math.random() - 0.5) * 80; // z
+  }
+
+  foamParticlesGeometry.setAttribute('position', new THREE.BufferAttribute(foamPosArray, 3));
+
+  // Create circular foam texture
+  const foamCanvas = document.createElement('canvas');
+  foamCanvas.width = 64;
+  foamCanvas.height = 64;
+  const foamCtx = foamCanvas.getContext('2d');
+  const foamGradient = foamCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+  foamGradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+  foamGradient.addColorStop(0.5, 'rgba(232, 244, 248, 0.8)');
+  foamGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+  foamCtx.fillStyle = foamGradient;
+  foamCtx.fillRect(0, 0, 64, 64);
+  const foamTexture = new THREE.CanvasTexture(foamCanvas);
+
+  const foamMaterial = new THREE.PointsMaterial({
+    size: 0.8,
+    color: 0xFFFFFF,
+    transparent: true,
+    opacity: 0.7,
+    map: foamTexture,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+
+  const foamParticles = new THREE.Points(foamParticlesGeometry, foamMaterial);
+  foamParticles.position.y = -2;
+  scene.add(foamParticles);
+
+  // Create shore line foam (wave breaking)
+  const shoreFoam = [];
+  const shoreFoamCount = 8;
+
+  class ShoreFoam {
+    constructor(index) {
+      this.index = index;
       this.reset();
     }
 
     reset() {
-      // Random starting position (from bottom)
-      this.position = new THREE.Vector3(
-        (Math.random() - 0.5) * 80,
-        -50 - Math.random() * 20,
-        (Math.random() - 0.5) * 50
-      );
+      const angle = (this.index / shoreFoamCount) * Math.PI * 2;
+      const radius = 15 + Math.random() * 10;
 
-      // Upward velocity with slight horizontal drift
-      this.velocity = new THREE.Vector3(
-        (Math.random() - 0.5) * 0.3,
-        Math.random() * 0.5 + 0.3,
-        (Math.random() - 0.5) * 0.2
+      this.position = new THREE.Vector3(
+        Math.cos(angle) * radius,
+        -2,
+        Math.sin(angle) * radius
       );
 
       this.life = 1.0;
-      this.decay = 0.005 + Math.random() * 0.005;
-      this.size = Math.random() * 2 + 1;
+      this.decay = 0.003 + Math.random() * 0.002;
+      this.scale = 1 + Math.random() * 2;
 
-      // Create bubble geometry
-      const bubbleGeometry = new THREE.SphereGeometry(this.size, 16, 16);
-      const bubbleMaterial = new THREE.MeshBasicMaterial({
-        color: 0x8BC9D9,
+      // Create foam plane
+      const foamGeom = new THREE.PlaneGeometry(this.scale * 3, this.scale * 0.5);
+      const foamMat = new THREE.MeshBasicMaterial({
+        color: 0xFFFFFF,
         transparent: true,
-        opacity: 0.4,
-        blending: THREE.NormalBlending
+        opacity: 0.8,
+        side: THREE.DoubleSide
       });
 
-      this.bubble = new THREE.Mesh(bubbleGeometry, bubbleMaterial);
-      this.bubble.position.copy(this.position);
-      scene.add(this.bubble);
+      this.mesh = new THREE.Mesh(foamGeom, foamMat);
+      this.mesh.rotation.x = -Math.PI / 2;
+      this.mesh.position.copy(this.position);
+      scene.add(this.mesh);
     }
 
-    update() {
-      // Add wave-like horizontal motion
-      this.velocity.x = Math.sin(this.position.y * 0.1) * 0.1;
-
-      this.position.add(this.velocity);
-      this.bubble.position.copy(this.position);
+    update(time) {
       this.life -= this.decay;
 
-      // Fade out
-      this.bubble.material.opacity = this.life * 0.4;
+      // Gentle wave motion
+      this.mesh.position.y = -2 + Math.sin(time * 2 + this.index) * 0.3;
 
-      // Reset if dead or too high
-      if (this.life <= 0 || this.position.y > 50) {
-        scene.remove(this.bubble);
-        this.bubble.geometry.dispose();
-        this.bubble.material.dispose();
+      // Fade out
+      this.mesh.material.opacity = this.life * 0.6;
+
+      // Scale up slightly as it fades
+      const scale = this.scale * (1 + (1 - this.life) * 0.5);
+      this.mesh.scale.set(scale, scale, scale);
+
+      if (this.life <= 0) {
+        scene.remove(this.mesh);
+        this.mesh.geometry.dispose();
+        this.mesh.material.dispose();
         this.reset();
       }
     }
   }
 
-  // Create floating bubbles
-  for (let i = 0; i < maxBubbles; i++) {
-    floatingBubbles.push(new FloatingBubble());
+  for (let i = 0; i < shoreFoamCount; i++) {
+    shoreFoam.push(new ShoreFoam(i));
   }
 
   // Mouse interaction
@@ -165,44 +200,67 @@
   let animationId;
   let time = 0;
 
-  // Store original positions
-  const originalPositions = new Float32Array(posArray);
-
   function animate() {
     animationId = requestAnimationFrame(animate);
-    time += 0.005;
+    time += 0.01;
 
-    // Gentle camera movement for ocean wave effect
-    camera.position.x = Math.sin(time * 0.08) * 3;
-    camera.position.y = Math.cos(time * 0.12) * 2;
-    camera.lookAt(0, 0, 0);
+    // Animate ocean waves with multiple sine waves
+    const positions = ocean.geometry.attributes.position.array;
+    const positions2 = ocean2.geometry.attributes.position.array;
 
-    // Mouse interaction - subtle camera tilt
-    camera.position.x += mouseX * 2;
-    camera.position.y += mouseY * 1.5;
+    for (let i = 0; i < positions.length; i += 3) {
+      const x = originalPositions[i];
+      const z = originalPositions[i + 1];
 
-    // Add wave motion to particles
-    const positions = particlesGeometry.attributes.position.array;
-    const sizeAttr = particlesGeometry.attributes.size.array;
-    for (let i = 0; i < particlesCount; i++) {
-      const i3 = i * 3;
-      const origX = originalPositions[i3];
-      const origY = originalPositions[i3 + 1];
-      const origZ = originalPositions[i3 + 2];
+      // Create realistic wave pattern using multiple sine waves
+      const wave1 = Math.sin(x * 0.5 + time) * 0.3;
+      const wave2 = Math.sin(z * 0.3 + time * 1.5) * 0.2;
+      const wave3 = Math.sin((x + z) * 0.2 + time * 0.8) * 0.25;
 
-      // Wave-like motion (horizontal and vertical)
-      positions[i3] = origX + Math.sin(time * 0.4 + origY * 0.05) * 2;
-      positions[i3 + 1] = origY + Math.cos(time * 0.3 + origX * 0.05) * 1.5;
-      positions[i3 + 2] = origZ + Math.sin(time * 0.35 + origX * 0.03) * 1;
-
-      // Gentle size pulsing (like breathing bubbles)
-      sizeAttr[i] = (Math.sin(time * 0.5 + i * 0.1) * 0.3 + 1.0) * (Math.random() * 0.2 + 0.9);
+      positions[i + 2] = wave1 + wave2 + wave3;
     }
-    particlesGeometry.attributes.position.needsUpdate = true;
-    particlesGeometry.attributes.size.needsUpdate = true;
 
-    // Update floating bubbles
-    floatingBubbles.forEach(bubble => bubble.update());
+    for (let i = 0; i < positions2.length; i += 3) {
+      const x = originalPositions[i];
+      const z = originalPositions[i + 1];
+
+      const wave1 = Math.sin(x * 0.4 + time * 1.2) * 0.4;
+      const wave2 = Math.sin(z * 0.5 + time * 0.9) * 0.3;
+
+      positions2[i + 2] = wave1 + wave2;
+    }
+
+    ocean.geometry.attributes.position.needsUpdate = true;
+    ocean2.geometry.attributes.position.needsUpdate = true;
+
+    // Animate foam particles
+    const foamPositions = foamParticlesGeometry.attributes.position.array;
+    for (let i = 0; i < foamParticlesCount; i++) {
+      const i3 = i * 3;
+      const x = foamPositions[i3];
+      const z = foamPositions[i3 + 2];
+
+      // Float on wave surface
+      foamPositions[i3 + 1] = -2 + Math.sin(x * 0.3 + time) * 0.5 + Math.sin(z * 0.2 + time * 1.3) * 0.3;
+
+      // Drift motion
+      foamPositions[i3] += Math.sin(time + i) * 0.01;
+      foamPositions[i3 + 2] += Math.cos(time + i) * 0.01;
+    }
+    foamParticlesGeometry.attributes.position.needsUpdate = true;
+
+    // Update shore foam
+    shoreFoam.forEach(foam => foam.update(time));
+
+    // Gentle camera sway
+    camera.position.x = Math.sin(time * 0.3) * 2 + mouseX * 3;
+    camera.position.y = 8 + Math.cos(time * 0.2) * 0.5 + mouseY * 2;
+    camera.lookAt(0, -2, 0);
+
+    // Animate point light for shimmer
+    pointLight.position.x = Math.sin(time * 0.5) * 10;
+    pointLight.position.z = Math.cos(time * 0.5) * 10;
+    pointLight.intensity = 0.8 + Math.sin(time * 2) * 0.3;
 
     renderer.render(scene, camera);
   }
@@ -221,15 +279,19 @@
   // Clean up when leaving page
   window.addEventListener('beforeunload', () => {
     cancelAnimationFrame(animationId);
-    particlesGeometry.dispose();
-    particlesMaterial.dispose();
-    texture.dispose();
 
-    // Clean up floating bubbles
-    floatingBubbles.forEach(bubble => {
-      scene.remove(bubble.bubble);
-      bubble.bubble.geometry.dispose();
-      bubble.bubble.material.dispose();
+    ocean.geometry.dispose();
+    ocean.material.dispose();
+    ocean2.geometry.dispose();
+    ocean2.material.dispose();
+    foamParticlesGeometry.dispose();
+    foamMaterial.dispose();
+    foamTexture.dispose();
+
+    shoreFoam.forEach(foam => {
+      scene.remove(foam.mesh);
+      foam.mesh.geometry.dispose();
+      foam.mesh.material.dispose();
     });
 
     renderer.dispose();
