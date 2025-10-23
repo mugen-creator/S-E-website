@@ -5,7 +5,7 @@
   right: 30px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--accent-color) 0%, #C0392B 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, #4A8FA5 100%);
   color: #FFFFFF;
   border: none;
   border-radius: 50%;
@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+  box-shadow: 0 4px 15px rgba(109, 180, 200, 0.4);
 }
 
 .scroll-to-top.visible {
@@ -28,8 +28,8 @@
 
 .scroll-to-top:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
-  background: linear-gradient(135deg, #C0392B 0%, var(--accent-color) 100%);
+  box-shadow: 0 8px 25px rgba(109, 180, 200, 0.6);
+  background: linear-gradient(135deg, #4A8FA5 0%, var(--accent-color) 100%);
 }
 
 .scroll-to-top:active {

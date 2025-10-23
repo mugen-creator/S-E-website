@@ -95,7 +95,7 @@ section:nth-child(even) {
 }
 
 .btn-primary:hover {
-  background-color: #C0392B;
+  background-color: #4A8FA5;
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -107,7 +107,7 @@ section:nth-child(even) {
 }
 
 .btn-secondary:hover {
-  background-color: #1A252F;
+  background-color: #1A4A5C;
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
