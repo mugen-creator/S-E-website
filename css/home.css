@@ -128,36 +128,45 @@
 
 .service-card {
   position: relative;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-xl);
   transition: all var(--transition-normal);
+  border: 2px solid transparent;
+}
+
+.service-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
 }
 
 .service-number {
   position: absolute;
   top: var(--spacing-md);
   right: var(--spacing-md);
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: var(--font-weight-bold);
-  color: var(--sub-color);
+  color: rgba(109, 180, 200, 0.15);
   line-height: 1;
   transition: color var(--transition-normal);
 }
 
 .service-card:hover .service-number {
-  color: var(--accent-color);
+  color: rgba(109, 180, 200, 0.25);
 }
 
 .service-title {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
   color: var(--main-color);
-  margin-bottom: var(--spacing-sm);
-  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  margin-top: 0;
+  letter-spacing: 0.02em;
 }
 
 .service-description {
-  color: var(--text-sub-color);
-  line-height: var(--line-height-body);
-  margin-bottom: var(--spacing-sm);
+  color: var(--text-color);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
 }
 
 .service-link {
@@ -387,7 +396,7 @@
   }
 
   .service-card {
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
   }
 
   .service-number {
@@ -397,11 +406,14 @@
   }
 
   .service-title {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
   }
 
   .service-description {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
   }
 
   .message-name-inline {
