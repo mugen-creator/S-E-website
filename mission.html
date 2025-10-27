@@ -151,7 +151,7 @@
 
     .value-card {
       background: linear-gradient(to bottom, #FFFFFF 0%, #F8F9FA 100%);
-      padding: var(--spacing-lg);
+      padding: var(--spacing-xl);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
       text-align: center;
@@ -217,12 +217,13 @@
     }
 
     .value-title {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: var(--main-color);
       font-weight: var(--font-weight-bold);
-      margin-bottom: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
       position: relative;
       padding-bottom: var(--spacing-sm);
+      letter-spacing: 0.02em;
     }
 
     .value-title::after {
@@ -237,10 +238,11 @@
     }
 
     .value-description {
-      font-size: 1rem;
-      line-height: var(--line-height-body);
-      color: var(--text-sub-color);
-      padding: 0 var(--spacing-sm);
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: var(--text-color);
+      padding: 0 var(--spacing-md);
+      font-weight: var(--font-weight-regular);
     }
 
     @media (max-width: 767px) {
@@ -281,23 +283,26 @@
       }
 
       .value-card {
-        padding: var(--spacing-sm);
+        padding: var(--spacing-lg);
       }
 
       .value-number {
-        width: 45px;
-        height: 45px;
-        font-size: 1.25rem;
-        line-height: 45px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+        line-height: 50px;
         margin-bottom: var(--spacing-sm);
       }
 
       .value-title {
-        font-size: 1.125rem;
+        font-size: 1.3rem;
+        margin-bottom: var(--spacing-sm);
       }
 
       .value-description {
-        font-size: 0.875rem;
+        font-size: 1rem;
+        line-height: 1.8;
+        padding: 0 var(--spacing-sm);
       }
     }
   </style>
