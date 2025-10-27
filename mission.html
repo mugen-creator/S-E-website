@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="合同会社S&Eのミッション・ビジョン・バリュー。企業の可能性を最大化し、持続的な成長を支援します。">
-  <meta name="keywords" content="ミッション,ビジョン,バリュー,企業理念,行動指針">
+  <meta name="description" content="合同会社S&Eのミッション・ビジョン・バリュー。「誠実」に「努力」をしつづけ、揺るぎない信頼を築きます。お客様の成功に貢献する企業理念をご紹介します。">
+  <meta name="keywords" content="ミッション,ビジョン,バリュー,企業理念,誠実,努力,行動指針">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://sande-llc.jp/mission">
 
   <!-- OGP (Open Graph Protocol) -->
   <meta property="og:title" content="ミッション・ビジョン | 合同会社S&E">
-  <meta property="og:description" content="合同会社S&Eのミッション・ビジョン・バリュー。企業の可能性を最大化し、持続的な成長を支援します。">
+  <meta property="og:description" content="合同会社S&Eのミッション・ビジョン・バリュー。「誠実」に「努力」をしつづけ、揺るぎない信頼を築きます。お客様の成功に貢献する企業理念をご紹介します。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sande-llc.jp/mission">
   <meta property="og:image" content="https://sande-llc.jp/assets/images/ogp-image.png">
@@ -20,7 +20,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ミッション・ビジョン | 合同会社S&E">
-  <meta name="twitter:description" content="合同会社S&Eのミッション・ビジョン・バリュー。企業の可能性を最大化し、持続的な成長を支援します。">
+  <meta name="twitter:description" content="合同会社S&Eのミッション・ビジョン・バリュー。「誠実」に「努力」をしつづけ、揺るぎない信頼を築きます。お客様の成功に貢献する企業理念をご紹介します。">
   <meta name="twitter:image" content="https://sande-llc.jp/assets/images/ogp-image.png">
 
   <!-- Favicon -->
@@ -140,8 +140,9 @@
     }
 
     .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: var(--spacing-lg);
       margin-top: var(--spacing-xl);
       max-width: 1200px;
@@ -151,7 +152,7 @@
 
     .value-card {
       background: linear-gradient(to bottom, #FFFFFF 0%, #F8F9FA 100%);
-      padding: var(--spacing-lg);
+      padding: var(--spacing-lg) 0.5rem;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
       text-align: center;
@@ -159,6 +160,20 @@
       border: 2px solid transparent;
       position: relative;
       overflow: hidden;
+      flex: 0 1 calc(33.333% - var(--spacing-lg));
+      min-width: 280px;
+    }
+
+    @media (max-width: 900px) {
+      .value-card {
+        flex: 0 1 calc(50% - var(--spacing-lg));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .value-card {
+        flex: 0 1 100%;
+      }
     }
 
     .value-card::before {
@@ -365,7 +380,7 @@
         <h2 class="mission-heading">ミッション</h2>
         <div class="mission-text">
           <p style="font-size: 1.5rem; font-weight: var(--font-weight-bold); color: var(--main-color); margin-bottom: var(--spacing-md);">
-            誠実に向き合い、<br class="mobile-br">努力を惜しまず、<br>
+            誠実に向き合い、<br class="mobile-br">努力をしつづけ、<br>
             お客様の成功に貢献する
           </p>
           <p>
@@ -438,7 +453,7 @@
             <div class="value-number">3</div>
             <h3 class="value-title">柔軟性</h3>
             <p class="value-description">
-              誠実に向き合い、<br class="mobile-br">努力を惜しまず、<br class="mobile-br">お客様の成功に貢献する。
+              誠実に向き合い、<br class="mobile-br">努力を惜しまず、<br class="mobile-br">お客様の成功に貢献します。
             </p>
           </div>
 
