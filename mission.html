@@ -245,7 +245,14 @@
       font-weight: var(--font-weight-regular);
     }
 
+    .mobile-br {
+      display: none;
+    }
+
     @media (max-width: 767px) {
+      .mobile-br {
+        display: block;
+      }
       .page-hero {
         padding: calc(var(--header-height-mobile) + var(--spacing-md)) 0 var(--spacing-sm);
       }
@@ -382,8 +389,7 @@
         <h2 class="mission-heading">ビジョン</h2>
         <div class="mission-text">
           <p style="font-size: 1.5rem; font-weight: var(--font-weight-bold); color: var(--main-color); margin-bottom: var(--spacing-md);">
-            「誠実」に「努力」をしつづけ、<br>
-            揺るぎない信頼を築く
+            「誠実」に「努力」をしつづけ、<br class="mobile-br">揺るぎない信頼を<br class="mobile-br">築く
           </p>
           <p>
             2030年までに、<br>
@@ -432,10 +438,8 @@
             <div class="value-number">3</div>
             <h3 class="value-title">柔軟性</h3>
             <p class="value-description">
-              固定観念にとらわれず、<br>
-              最適な方法を模索します。<br>
-              お客様に誠実に向き合い、<br>
-              努力を惜しまず対応します。
+              誠実に向き合い、<br class="mobile-br">努力を惜しまず、<br>
+              お客様の成功に貢献します。
             </p>
           </div>
 
