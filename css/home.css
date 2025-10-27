@@ -38,6 +38,10 @@
   animation-delay: 0.2s;
 }
 
+.hero-title .mobile-br {
+  display: none;
+}
+
 .hero-subtitle {
   font-size: 1.25rem;
   font-weight: var(--font-weight-regular);
@@ -338,6 +342,10 @@
   .hero-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+  }
+
+  .hero-title .mobile-br {
+    display: block;
   }
 
   .hero-subtitle {
