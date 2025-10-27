@@ -1,5 +1,10 @@
 /* Home Page Styles */
 
+/* General Mobile Styles */
+.mobile-br {
+  display: none;
+}
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -332,6 +337,10 @@
 }
 
 @media (max-width: 767px) {
+  .mobile-br {
+    display: block;
+  }
+
   .hero {
     min-height: 500px;
     padding: 0 1rem;
