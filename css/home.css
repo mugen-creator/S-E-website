@@ -32,8 +32,6 @@
   z-index: 10;
   padding: var(--spacing-xl) var(--container-padding);
   max-width: 1200px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: var(--radius-lg);
 }
 
 .hero-title {
@@ -140,6 +138,10 @@
   background-color: var(--bg-light);
 }
 
+.services-section .container {
+  max-width: 1400px;
+}
+
 .section-subtitle {
   color: var(--text-sub-color);
   font-size: 1.1rem;
@@ -156,6 +158,8 @@
   padding: var(--spacing-xl);
   transition: all var(--transition-normal);
   border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card:hover {
@@ -192,6 +196,7 @@
   line-height: 1.8;
   margin-bottom: var(--spacing-md);
   font-size: 1rem;
+  flex: 1;
 }
 
 .service-link {
@@ -201,6 +206,7 @@
   text-decoration: none;
   transition: all var(--transition-fast);
   position: relative;
+  margin-top: auto;
 }
 
 .service-link::after {
