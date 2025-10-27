@@ -10,7 +10,7 @@
 
   // Create video element
   const video = document.createElement('video');
-  video.src = 'assets/videos/ocean-wave.mp4';
+  video.src = 'assets/videos/hero-background.mp4';
   video.autoplay = true;
   video.loop = true;
   video.muted = true;
