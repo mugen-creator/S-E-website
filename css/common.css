@@ -180,6 +180,17 @@ a:hover {
   }
 }
 
+/* Mobile Break */
+.mobile-br {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile-br {
+    display: block;
+  }
+}
+
 /* Flex Utilities */
 .flex {
   display: flex;
