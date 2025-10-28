@@ -95,7 +95,7 @@ section:nth-child(even) {
 }
 
 .btn-primary:hover {
-  background-color: #4A8FA5;
+  background-color: var(--accent-color);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }

@@ -1,13 +1,13 @@
 /* CSS Variables */
 :root {
   /* Colors */
-  --main-color: #2C5F7D;
-  --accent-color: #6DB4C8;
-  --sub-color: #E8F4F8;
+  --main-color: #4AB8D9;
+  --accent-color: #5CC9E5;
+  --sub-color: #E0F7FA;
   --text-color: #2C5F7D;
   --text-sub-color: #5A8A9B;
   --bg-color: #FFFFFF;
-  --bg-light: #F5FAFB;
+  --bg-light: #F0FBFD;
 
   /* Typography */
   --font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;

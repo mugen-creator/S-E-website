@@ -5,7 +5,7 @@
   right: 30px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--accent-color) 0%, #4A8FA5 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--main-color) 100%);
   color: #FFFFFF;
   border: none;
   border-radius: 50%;
@@ -29,7 +29,7 @@
 .scroll-to-top:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(109, 180, 200, 0.6);
-  background: linear-gradient(135deg, #4A8FA5 0%, var(--accent-color) 100%);
+  background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-color) 100%);
 }
 
 .scroll-to-top:active {
